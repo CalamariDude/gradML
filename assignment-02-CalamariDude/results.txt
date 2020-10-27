@@ -1,0 +1,124 @@
+********* Crab Dataset **********
+Classification report for MAP
+              precision    recall  f1-score   support
+
+         0.0       1.00      1.00      1.00        34
+         1.0       1.00      1.00      1.00        32
+
+    accuracy                           1.00        66
+   macro avg       1.00      1.00      1.00        66
+weighted avg       1.00      1.00      1.00        66
+
+Confusion Matrix (Rows are true, Prediction are columms)
+[[34  0]
+ [ 0 32]]
+
+
+
+Best k value =  1
+Classification report for KNN
+              precision    recall  f1-score   support
+
+         0.0       0.94      0.94      0.94        34
+         1.0       0.94      0.94      0.94        32
+
+    accuracy                           0.94        66
+   macro avg       0.94      0.94      0.94        66
+weighted avg       0.94      0.94      0.94        66
+
+Confusion Matrix (Rows are true, Prediction are columms)
+[[32  2]
+ [ 2 30]]
+********* 10 Dataset **********
+Classification report for MAP
+              precision    recall  f1-score   support
+
+         0.0       0.90      1.00      0.95       171
+         1.0       1.00      0.89      0.94       159
+
+    accuracy                           0.95       330
+   macro avg       0.95      0.94      0.95       330
+weighted avg       0.95      0.95      0.95       330
+
+Confusion Matrix (Rows are true, Prediction are columms)
+[[171   0]
+ [ 18 141]]
+
+
+
+Best k value =  3
+Classification report for KNN
+              precision    recall  f1-score   support
+
+         0.0       0.59      0.56      0.57       171
+         1.0       0.55      0.58      0.57       159
+
+    accuracy                           0.57       330
+   macro avg       0.57      0.57      0.57       330
+weighted avg       0.57      0.57      0.57       330
+
+Confusion Matrix (Rows are true, Prediction are columms)
+[[95 76]
+ [66 93]]
+********* 10 Dataset cross validation **********
+Classification report for MAP
+              precision    recall  f1-score   support
+
+         0.0       0.88      1.00      0.94       227
+         1.0       1.00      0.87      0.93       242
+
+    accuracy                           0.93       469
+   macro avg       0.94      0.94      0.93       469
+weighted avg       0.94      0.93      0.93       469
+
+Confusion Matrix (Rows are true, Prediction are columms)
+[[227   0]
+ [ 31 211]]
+
+
+
+Best k value =  3
+Classification report for KNN
+              precision    recall  f1-score   support
+
+         0.0       0.50      0.56      0.52       227
+         1.0       0.53      0.47      0.50       242
+
+    accuracy                           0.51       469
+   macro avg       0.51      0.51      0.51       469
+weighted avg       0.51      0.51      0.51       469
+
+Confusion Matrix (Rows are true, Prediction are columms)
+[[126 101]
+ [128 114]]
+********* Crab cross validation **********
+Classification report for MAP
+              precision    recall  f1-score   support
+
+         0.0       0.86      1.00      0.93       227
+         1.0       1.00      0.85      0.92       242
+
+    accuracy                           0.92       469
+   macro avg       0.93      0.93      0.92       469
+weighted avg       0.93      0.92      0.92       469
+
+Confusion Matrix (Rows are true, Prediction are columms)
+[[227   0]
+ [ 36 206]]
+
+
+
+Best k value =  2
+Classification report for KNN
+              precision    recall  f1-score   support
+
+         0.0       0.49      0.80      0.61       227
+         1.0       0.54      0.22      0.32       242
+
+    accuracy                           0.50       469
+   macro avg       0.52      0.51      0.46       469
+weighted avg       0.52      0.50      0.46       469
+
+Confusion Matrix (Rows are true, Prediction are columms)
+[[181  46]
+ [188  54]]

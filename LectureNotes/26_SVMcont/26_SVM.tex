@@ -1,0 +1,107 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}         
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{algorithmic}
+% \usepackage{algorithm}
+\usepackage{url}
+\usepackage{framed}
+\usepackage{mathrsfs}
+\usepackage[ruled,vlined]{algorithm2e}
+
+\def\x{\mathbf{x}}
+\def\t{\mathbf{t}}
+\def\z{\mathbf{z}}
+\def\X{\mathbf{X}}
+\def\w{\mathbf{w}}
+\def\m{\mathbf{m}}
+\def\S{\mathbf{S}}
+\def\A{\mathbf{A}}
+\def\K{\mathbf{K}}
+\def\u{\mathbf{u}}
+\def\C{\mathscr{C}}
+
+\title{Support Vector Machines Continued.  }
+
+\begin{document}
+\maketitle
+
+\section{SVM for Overlapping Classes}
+\begin{itemize}
+\item In the previous case, $t_n\left(\w^t\phi(\x_n) + b\right)\ge 1$ is a constraint. It is required.  What if the classes are not linearly separable in the kernel space? No solution may exist.  So, we must allow for misclassification. 
+\item We do this through slack variables, $\xi$
+\item The slack varaibles are $\xi_n\ge 0$
+\item If $\xi_n = 0$ if correctly classified on the boundary or farther away
+\item $\xi_n = |t_n - y(\x_n)|$ for other points.  Increases as the data point is more mis-classified. 
+\item So, the new constraints are:
+\begin{equation}
+t_n y(\x_n) \ge 1 - \xi_n \quad \text{where } \xi_n \ge 0
+\end{equation}
+\item So the objective function become:
+\begin{equation}
+C\sum_{n=1}^N\xi_n + \frac{1}{2}\left\| \w \right\|^2
+\end{equation}
+where $C > 0$ is a trade-off parameter
+\item So, our Lagrangian becomes:
+\begin{equation}
+\mathscr{L}(\w, b, \mathbf{a}) = C\sum_{n=1}^N\xi_n + \frac{1}{2}\left\| \w \right\|^2 - \sum_{n=1}^N a_n\left\{ t_ny(x_n) - 1 +\xi_n\right\} - \sum_{n=1}^N \mu_n\xi_n
+\end{equation}
+where $a_n \ge 0$, $\mu_n \ge 0$ are Lagrange multipliers
+\item\emph{What is the meaning of each term?}
+\item \emph{So, what are the resulting KKT conditions? }
+\item We now need to optimize with respect to $\w$, $b$, and $\xi_n$.  How do we do this?                           
+\begin{equation}
+\tilde{\mathscr{L}}(\mathbf{a}) = \sum_{n=1}^N a_n - \frac{1}{2} \sum_n \sum_m a_n a_m t_n t_m K(\x_n, \x_m)
+\end{equation}
+where $0 \le a_n \le C$ and $\sum_n a_nt_n = 0$
+
+\item The constraints are:
+\begin{equation}
+t_n y(\x_n) \ge 1 - \xi_n \quad \text{where } \xi_n \ge 0
+\end{equation}
+\item So the objective function becomes:
+\begin{equation}
+C\sum_{n=1}^N\xi_n + \frac{1}{2}\left\| \w \right\|^2
+\end{equation}
+where $C > 0$ is a trade-off parameter
+\item Our Lagrangian is then:
+\begin{equation}
+\mathscr{L}(\w, b, \mathbf{a}) = C\sum_{n=1}^N\xi_n + \frac{1}{2}\left\| \w \right\|^2 - \sum_{n=1}^N a_n\left\{ t_ny(x_n) - 1 +\xi_n\right\} - \sum_{n=1}^N \mu_n\xi_n
+\end{equation}
+where $a_n \ge 0$, $\mu_n \ge 0$ are Lagrange multipliers
+\item\emph{What is the meaning of each term?}
+\item \emph{So, what are the resulting KKT conditions? }
+\begin{eqnarray}
+a_n \ge 0\\
+ t_ny(x_n) - 1 +\xi_n \ge 0\\
+ a_n(t_ny(x_n) - 1 +\xi_n) = 0\\
+ \xi_n \ge 0\\
+ \mu_n \ge 0 \\
+ \mu_n\xi_n = 0
+\end{eqnarray}
+\item We now need to optimize with respect to $\w$, $b$, and $\xi_n$.  How do we do this? 
+\begin{eqnarray}
+\frac{\partial \mathscr{L}}{\partial \w} = 0 \rightarrow \w = \sum_{n=1}^N a_nt_n\phi(\x_n)\\
+\frac{\partial \mathscr{L}}{\partial \mathbf{b}} = 0 \rightarrow \sum_{n=1}^Na_nt_n = 0 \\
+\frac{\partial \mathscr{L}}{\partial \xi} = 0 \rightarrow a_n = C - \mu_n
+\end{eqnarray}    
+\item Plug these into the Lagrangian to get the Dual form:
+\begin{eqnarray}
+\mathscr{L}(\w, b, \mathbf{a}) &=& C\sum_{n=1}^N\xi_n + \frac{1}{2}\left\| \w \right\|^2 - \sum_{n=1}^N a_n\left\{ t_ny(x_n) - 1 +\xi_n\right\} - \sum_{n=1}^N \mu_n\xi_n\\
+ &=& \sum_{n=1}^N\xi_n (C-\mu_n)+ \frac{1}{2}\left\| \w \right\|^2 - \sum_{n=1}^N a_n\left\{ t_n\left(\w^T\phi(\x_n) + b\right) - 1 +\xi_n\right\} \\
+ &=& \sum_{n=1}^N\xi_n a_n+ \frac{1}{2}\left\| \w \right\|^2 - \sum_{n=1}^N a_n\left\{ t_n\left(\w^T\phi(\x_n)\right)\right\}  - b\sum_{n=1}^N a_n t_n   + \sum_{n=1}^N a_n  -\sum_{n=1}^N a_n \xi_n \\
+  &=&  \frac{1}{2}\left\| \w \right\|^2 - \sum_{n=1}^N a_n\left\{ t_n\left(\w^T\phi(\x_n)\right)\right\}    + \sum_{n=1}^N a_n  \\
+    &=&  \sum_{n=1}^N a_n  + \frac{1}{2}\left(\sum_{n=1}^N a_nt_n\phi(\x_n) \right)^T\left(\sum_{n=1}^N a_nt_n\phi(\x_n) \right) \\
+    & &- \sum_{n=1}^N a_n\left\{ t_n\left(\left(\sum_{m=1}^N a_mt_m\phi(\x_m) \right)^T\phi(\x_n)\right)\right\}    \\
+&=& \sum_{n=1}^N a_n - \frac{1}{2} \sum_n \sum_m a_n a_m t_n t_m K(\x_n, \x_m)
+\end{eqnarray}
+
+\begin{equation}
+\tilde{\mathscr{L}}(\mathbf{a}) = \sum_{n=1}^N a_n - \frac{1}{2} \sum_n \sum_m a_n a_m t_n t_m K(\x_n, \x_m)
+\end{equation}
+where $0 \le a_n \le C$ and $\sum_n a_nt_n = 0$
+\item \emph{Why did we want it in this form? }
+\end{itemize}
+
+\end{document}  

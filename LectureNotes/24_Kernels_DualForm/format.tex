@@ -1,0 +1,87 @@
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{plain}                                                      %%
+%%%%%%%%%% EXACT 1in MARGINS %%%%%%%                                   %%
+\setlength{\textwidth}{6.5in}     %%                                   %%
+\setlength{\oddsidemargin}{0in}   %% (It is recommended that you       %%
+\setlength{\evensidemargin}{0in}  %%  not change these parameters,     %%
+\setlength{\textheight}{8.5in}    %%  at the risk of having your       %%
+\setlength{\topmargin}{0in}       %%  proposal dismissed on the basis  %%
+\setlength{\headheight}{0in}      %%  of incorrect formatting!!!)      %%
+\setlength{\headsep}{0in}         %%                                   %%
+\setlength{\footskip}{.5in}       %%                                   %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%                                   %%
+\newcommand{\required}[1]{\section*{\hfil #1\hfil}}                    %%
+\renewcommand{\refname}{\centerline{References Cited}}                 %%
+\bibliographystyle{plain}                                              %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%PUT YOUR MACROS HERE
+
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{times}
+\usepackage{enumitem}
+\usepackage{mathrsfs}
+\usepackage[sort, compress]{natbib}
+\usepackage{float}
+\usepackage[ruled,vlined]{algorithm2e}
+\usepackage{fixltx2e,dblfloatfix}
+\usepackage{url}
+
+
+\DeclareMathOperator*{\argmin}{argmin}
+\DeclareMathOperator*{\argmax}{argmax}
+\DeclareMathOperator*{\N}{\mathcal{N}}
+\newcommand{\mbf}[1]{\mathbf{#1}} %note: I think using \mb killed the UF thesis template, changed to \mbf
+\def\m{\textrm{m}}
+\def\x{\mathbf{x}}
+\def\t{\mathbf{t}}
+\def\K{\mathbf{K}}
+\def\y{\mathbf{y}}
+\def\e{\mathbf{e}}
+\def\p{\mathbf{p}}
+\def\s{\mathbf{s}}
+\def\b{\mathbf{b}}
+\def\w{\mathbf{w}}
+\def\n{\mathbf{n}}
+\def\a{\mathbf{a}}
+\def\u{\mathbf{u}}
+\def\z{\mathbf{z}}
+\def\B{\mathbf{B}}
+\def\C{\mathbf{C}}
+\def\E{\mathbf{E}}
+\let\sec\S
+\def\S{\mathbf{S}}
+\def\I{\mathbf{I}}
+\def\P{\mathbf{P}}
+\def\X{\mathbf{X}}
+\def\A{\mathbf{A}}
+\def\C{\mathbf{C}}
+\def\M{\mathbf{M}}
+\def\U{\mathbf{U}}
+\def\Y{\mathbf{Y}}
+\def\Z{\mathbf{Z}}
+\def\balpha{\boldsymbol\alpha}
+\def\bmu{{\boldsymbol\mu}}
+\def\btheta{{\boldsymbol\theta}}
+\def\bSigma{\mathbf{\Sigma}}
+\def\hbmu{\hat{\bmu}}
+\def\hbSigma{\hat{\bSigma}}
+\def\bTheta{\boldsymbol\Theta}
+\def\bLambda{\boldsymbol\Lambda}
+\def\del{\partial}
+\newcommand{\bb}[1]{\textbf{#1}}
+
+\usepackage[uppercase]{titlesec}
+\titleformat{\section}{\bfseries \scshape \large }{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries \scshape}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries \scshape}{\thesubsubsection}{1em}{}
+\titleformat{\paragraph}{\bfseries}{}{1em}{}
+\titlespacing*{\section}{0pt}{5pt}{0pt}
+\titlespacing*{\subsection}{0pt}{5pt}{0pt}
+\titlespacing*{\subsubsection}{0pt}{5pt}{0pt}
+\titlespacing*{\paragraph}{0pt}{5pt}{0pt}
+
